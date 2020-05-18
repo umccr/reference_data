@@ -73,13 +73,14 @@ vlad:
       barcodes_10x:         /Users/vsaveliev/bio/reference_data/4M-with-alts-february-2016.txt
       hg19ToHg38:           /Users/vsaveliev/bio/extras/hg19ToHg38.over.chain.gz
       iedb_dir:             ~/rjn/extras/iedb
-      pyensembl_data:       /Users/vsaveliev/bio/genomes/pyensembl
     hg38:
       fa:                   /Users/vsaveliev/bio/genomes/hg38/hg38.fa
       fa_plus_gdc_viruses:  /Users/vsaveliev/bio/genomes/hg38/viral/hg38_noalt_plus_gdc_viral.fa
+      pyensembl_data:       /Users/vsaveliev/bio/genomes/pyensembl
     test-GRCh37:
       fa:                   /Users/vsaveliev/git/umccr/vcf_stuff/tests/data/test-GRCh37.fa
       panel_of_normals_dir: /Users/vsaveliev/git/umccr/vcf_stuff/tests/data/panel_of_normals
+      pyensembl_data:       /Users/vsaveliev/bio/genomes/pyensembl
       truth_sets:
         test-mb:
           vcf:              /Users/vsaveliev/git/umccr/vcf_stuff/tests/data/test-benchmark.vcf.gz
@@ -110,7 +111,6 @@ generic:
   extras: ''
   genomes:
     all:
-      pyensembl_data:          genomes/pyensembl
       refseq_msh:              genomes/microbiome/refseq.genomes.k21s1000.msh
     GRCh37:
       fa:                      genomes/GRCh37/GRCh37.fa
@@ -128,6 +128,7 @@ generic:
       gridss_purple_linx_dir:  genomes/GRCh37/hmf/gridss
       snpeff:                  genomes/GRCh37/snpeff/data/GRCh37.75
       noalt_bed:               genomes/GRCh37/GRCh37_noalt.bed
+      pyensembl_data:          genomes/GRCh37/pyensembl
       truth_sets:
         mb:
           vcf:                 genomes/GRCh37/MB-benchmark.vcf.gz
@@ -153,6 +154,7 @@ generic:
       coding_regions:          genomes/hg38/hmf/coding_regions.bed
       snpeff:                  genomes/hg38/snpeff/data/GRCh38.92
       noalt_bed:               genomes/hg38/hg38_noalt.bed
+      pyensembl_data:          genomes/hg38/pyensembl
       truth_sets:
         giab:
           bed:                 genomes/hg38/truth_regions.bed

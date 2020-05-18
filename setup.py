@@ -1,10 +1,10 @@
 #!/usr/bin/env python
 from setuptools import setup
-import versionpy
 
 import reference_data
 pkg = reference_data.__name__
 
+import versionpy
 version = versionpy.get_version(pkg)
 
 setup(
