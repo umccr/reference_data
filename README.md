@@ -16,7 +16,7 @@ hashdeep -r hg38 > hg38-manifest.txt
 
 This package also provides a python API to access the reference data.
 
-[reference_data/paths.yml](hpc_paths/paths.yml) contains default data paths and settings for common UMCCR clusters.
+[reference_data/paths.yml](reference_data/paths.yml) contains default data paths and settings for common UMCCR clusters.
 
 `from reference_data import api as refdata` is a python API that can detect the machine based on `hostname`.
 
@@ -47,7 +47,7 @@ Available genomes:
 - `"hg38"`
 - `"GRCh37"`
 
-Available keys: see [reference_data/paths.yml](hpc_paths/paths.yml)
+Available keys: see [reference_data/paths.yml](reference_data/paths.yml)
 
 Installation:
 

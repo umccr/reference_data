@@ -35,6 +35,14 @@ name = loc_dict.get('name')
 genomes = loc_dict.get('genomes')
 genomes_dir = None
 
+# non-reference data stuff
+cluster_cmd = loc_dict.get('cluster_cmd')
+cluster_jobscript = loc_dict.get('cluster_jobscript')
+try:
+    ncpus_on_node = loc_dict.get('ncpus_on_node', len(os.sched_getaffinity(0)))
+except:
+    ncpus_on_node = loc_dict.get('ncpus_on_node', os.cpu_count())
+
 
 def ref_file_exists(genome='all', key='fa', path=None):
     try:
@@ -175,10 +183,10 @@ def find_genomes_dir(_new_genomes_url=None):
 
     gd = abspath(join(package_path(), pardir, 'genomes'))
     if isdir(gd):
-        utils.info(f'Using genomes dir at hpc_utils package parent folder')
+        utils.info(f'Using genomes dir at reference_data package parent folder')
         genomes_dir = gd
         return genomes_dir
-    tried.append(f'hpc_utils package parent folder ({gd})')
+    tried.append(f'reference_data package parent folder ({gd})')
 
     extras = loc_dict.get('extras')
     if extras and isdir(extras):
