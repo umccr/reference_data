@@ -217,11 +217,11 @@ def _set_up_new_genomes_dir(genomes_url=None):
     else:
         if genomes_url.endswith('/'):  # dropping the trailing /
             genomes_url = genomes_url[:-1]
+        versioned_full_genomes_url = f'{genomes_url}_{"".join(version.split("."))}/'
         versioned_genomes_url = f'{genomes_url}_{"".join(version.split(".")[0:2])}/'
-        versioned_bugfix_genomes_url = f'{genomes_url}_{"".join(version.split("."))}/'
         genomes_url = f'{genomes_url}/'  # putting the tralining / back
 
-        urls_to_try = [genomes_url, versioned_bugfix_genomes_url, versioned_genomes_url]
+        urls_to_try = [versioned_full_genomes_url, versioned_genomes_url, genomes_url]
 
         if genomes_url.startswith('s3://'):
             for url in urls_to_try:
@@ -244,5 +244,4 @@ def _set_up_new_genomes_dir(genomes_url=None):
                     utils.run_simple(f"iap files download {url}/* {target_genomes_dir}")
                     return target_genomes_dir
             utils.critical(f'Cannot find reference data at GDS. Tried URLs: {urls_to_try}')
-
 
