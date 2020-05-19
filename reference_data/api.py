@@ -76,7 +76,7 @@ def get_ref_file(genome='all', key='fa', path=None, must_exist=True):
                  f'Genome: {genome}, cwd: {os.getcwd()}, host: "{name or utils.hostname}"')
 
     # Resolve found path:
-    if path.startswith('genomes'):
+    if not path.startswith('/'):
         if genomes_dir:
             if not isdir(genomes_dir):
                 if must_exist:
@@ -86,7 +86,7 @@ def get_ref_file(genome='all', key='fa', path=None, must_exist=True):
             gd = genomes_dir
         else:
             gd = find_genomes_dir()
-        path = abspath(join(gd, pardir, path))
+        path = abspath(join(gd, path))
 
     path = utils.adjust_path(path)
     if not exists(path):

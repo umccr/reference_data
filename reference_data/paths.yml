@@ -111,50 +111,50 @@ generic:
   extras: ''
   genomes:
     all:
-      refseq_msh:              genomes/microbiome/refseq.genomes.k21s1000.msh
+      refseq_msh:              microbiome/refseq.genomes.k21s1000.msh
     GRCh37:
-      fa:                      genomes/GRCh37/GRCh37.fa
-      pcgr_data:               genomes/GRCh37/pcgr/data
-      cacao_data:              genomes/GRCh37/cacao/data
-      panel_of_normals_dir:    genomes/GRCh37/panel_of_normals
-      problem_regions_dir:     genomes/GRCh37/problem_regions
-      gnomad:                  genomes/GRCh37/gnomad_genome.r2.1.common_pass_clean.norm.vcf.gz
-      purple_gc:               genomes/GRCh37/hmf/GC_profile.1000bp.cnp
-      purple_het:              genomes/GRCh37/hmf/GermlineHetPon.hg19.vcf.gz
-      hotspots:                genomes/GRCh37/hotspots/merged.vcf.gz
-      hmf_giab_conf:           genomes/GRCh37/hmf/NA12878_GIAB_highconf_IllFB-IllGATKHC-CG-Ion-Solid_ALLCHROM_v3.2.2_highconf.bed.gz
-      hmf_mappability:         genomes/GRCh37/hmf/out_150_hg19.mappability.bed.gz
-      coding_regions:          genomes/GRCh37/hmf/coding_regions.bed
-      gridss_purple_linx_dir:  genomes/GRCh37/hmf/gridss
-      snpeff:                  genomes/GRCh37/snpeff/data/GRCh37.75
-      noalt_bed:               genomes/GRCh37/GRCh37_noalt.bed
-      pyensembl_data:          genomes/GRCh37/pyensembl
+      fa:                      GRCh37/GRCh37.fa
+      pcgr_data:               GRCh37/pcgr/data
+      cacao_data:              GRCh37/cacao/data
+      panel_of_normals_dir:    GRCh37/panel_of_normals
+      problem_regions_dir:     GRCh37/problem_regions
+      gnomad:                  GRCh37/gnomad_genome.r2.1.common_pass_clean.norm.vcf.gz
+      purple_gc:               GRCh37/hmf/GC_profile.1000bp.cnp
+      purple_het:              GRCh37/hmf/GermlineHetPon.hg19.vcf.gz
+      hotspots:                GRCh37/hotspots/merged.vcf.gz
+      hmf_giab_conf:           GRCh37/hmf/NA12878_GIAB_highconf_IllFB-IllGATKHC-CG-Ion-Solid_ALLCHROM_v3.2.2_highconf.bed.gz
+      hmf_mappability:         GRCh37/hmf/out_150_hg19.mappability.bed.gz
+      coding_regions:          GRCh37/hmf/coding_regions.bed
+      gridss_purple_linx_dir:  GRCh37/hmf/gridss
+      snpeff:                  GRCh37/snpeff/data/GRCh37.75
+      noalt_bed:               GRCh37/GRCh37_noalt.bed
+      pyensembl_data:          GRCh37/pyensembl
       truth_sets:
         mb:
-          vcf:                 genomes/GRCh37/MB-benchmark.vcf.gz
+          vcf:                 GRCh37/MB-benchmark.vcf.gz
         colo:  # from /data/cephfs/punim0010/data/External/Reference/COLO829_Craig/truth_set
-          vcf:                 genomes/GRCh37/colo829_truth/EGAZ00001226241_ListforNatureReports.IndelsandSNVs.final.Suppl1.snpEff.validated.SORTED.vcf.gz
+          vcf:                 GRCh37/colo829_truth/EGAZ00001226241_ListforNatureReports.IndelsandSNVs.final.Suppl1.snpEff.validated.SORTED.vcf.gz
         colo_illumina:
-          vcf:                 genomes/GRCh37/colo829_truth/EGAZ00001226241_ListforNatureReports.IndelsandSNVs.final.Suppl1.snpEff.validated.SORTED.noINFO.COLO829IlluminaOnly.vcf.gz
+          vcf:                 GRCh37/colo829_truth/EGAZ00001226241_ListforNatureReports.IndelsandSNVs.final.Suppl1.snpEff.validated.SORTED.noINFO.COLO829IlluminaOnly.vcf.gz
     hg38:
-      fa:                      genomes/hg38/hg38.fa
-      bwa:                     genomes/hg38/bwa/hg38.fa
-      pcgr_data:               genomes/hg38/pcgr/data
-      cacao_data:              genomes/hg38/cacao/data
-      gdc_viral_fa:            genomes/hg38/viral/gdc-viral.fa
-      fa_plus_gdc_viruses:     genomes/hg38/viral/hg38_noalt_plus_gdc_viral.fa
-      panel_of_normals_dir:    genomes/hg38/panel_of_normals
-      problem_regions_dir:     genomes/hg38/problem_regions
-      gnomad:                  genomes/hg38/gnomad_genome.r2.1.common_pass_clean.norm.vcf.gz
-      purple_gc:               genomes/hg38/hmf/GC_profile.1000bp.cnp
-      purple_het:              genomes/hg38/hmf/GermlineHetPon.hg38.vcf.gz
-      hotspots:                genomes/hg38/hotspots/merged.vcf.gz
-      hmf_giab_conf:           genomes/hg38/hmf/NA12878_GIAB_highconf_IllFB-IllGATKHC-CG-Ion-Solid_ALLCHROM_v3.2.2_highconf.bed.gz
-      hmf_mappability:         genomes/hg38/hmf/out_150_hg19.mappability.bed.gz
-      coding_regions:          genomes/hg38/hmf/coding_regions.bed
-      snpeff:                  genomes/hg38/snpeff/data/GRCh38.92
-      noalt_bed:               genomes/hg38/hg38_noalt.bed
-      pyensembl_data:          genomes/hg38/pyensembl
+      fa:                      hg38/hg38.fa
+      bwa:                     hg38/bwa/hg38.fa
+      pcgr_data:               hg38/pcgr/data
+      cacao_data:              hg38/cacao/data
+      gdc_viral_fa:            hg38/viral/gdc-viral.fa
+      fa_plus_gdc_viruses:     hg38/viral/hg38_noalt_plus_gdc_viral.fa
+      panel_of_normals_dir:    hg38/panel_of_normals
+      problem_regions_dir:     hg38/problem_regions
+      gnomad:                  hg38/gnomad_genome.r2.1.common_pass_clean.norm.vcf.gz
+      purple_gc:               hg38/hmf/GC_profile.1000bp.cnp
+      purple_het:              hg38/hmf/GermlineHetPon.hg38.vcf.gz
+      hotspots:                hg38/hotspots/merged.vcf.gz
+      hmf_giab_conf:           hg38/hmf/NA12878_GIAB_highconf_IllFB-IllGATKHC-CG-Ion-Solid_ALLCHROM_v3.2.2_highconf.bed.gz
+      hmf_mappability:         hg38/hmf/out_150_hg19.mappability.bed.gz
+      coding_regions:          hg38/hmf/coding_regions.bed
+      snpeff:                  hg38/snpeff/data/GRCh38.92
+      noalt_bed:               hg38/hg38_noalt.bed
+      pyensembl_data:          hg38/pyensembl
       truth_sets:
         giab:
-          bed:                 genomes/hg38/truth_regions.bed
+          bed:                 hg38/truth_regions.bed
