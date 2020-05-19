@@ -204,42 +204,45 @@ def _set_up_new_genomes_dir(genomes_url=None):
     target_genomes_dir = utils.safe_mkdir(utils.adjust_path('~/umccrise_genomes'))
     from . import _version
     version = _version.__version__
-    versioned_genomes_url = f'{genomes_url}_{version.replace(".", "")}'
 
+    # a local tarball file?
     if isfile(genomes_url) and genomes_url.endswith('.tar.gz') or genomes_url.endswith('.tgz'):
         return utils.extract_tarball_input(genomes_url, target_genomes_dir)
 
-    elif genomes_url.startswith('s3://'):
-        if not genomes_url.endswith('/'):
-            genomes_url = genomes_url + '/'
-        try:
-            utils.run_simple(f'aws s3 ls {genomes_url}')
-        except:
-            try:
-                utils.run_simple(f'aws s3 ls {versioned_genomes_url}')
-            except:
-                utils.critical(f'Cannot find reference data at s3 URL {genomes_url} or {versioned_genomes_url}')
-            else:
-                genomes_url = versioned_genomes_url
-        utils.run_simple(f'aws s3 sync {genomes_url} {target_genomes_dir}')
-        return target_genomes_dir
-
-    elif genomes_url.startswith('gds://'):
-        if not genomes_url.endswith('/'):
-            genomes_url = genomes_url + '/'
-        try:
-            utils.run_simple(f'iap folders list {genomes_url} | grep -v -q "No folders found"')
-        except:
-            try:
-                utils.run_simple(f"iap folders list {versioned_genomes_url} | grep -v -q \"No folders found\"")
-            except:
-                utils.critical(f'Cannot find reference data at GDS URL {genomes_url} or {versioned_genomes_url}')
-            else:
-                genomes_url = versioned_genomes_url
-        utils.run_simple(f"iap files download {genomes_url}/* {target_genomes_dir}")
-        return target_genomes_dir
-
-    else:
-        # a local directory?
+    # a local directory?
+    elif isdir(genomes_url):
         return utils.verify_dir(genomes_url, is_critical=True)
+
+    # s3 or gds url?
+    else:
+        if genomes_url.endswith('/'):  # dropping the trailing /
+            genomes_url = genomes_url[:-1]
+        versioned_genomes_url = f'{genomes_url}_{"".join(version.split(".")[0:2])}/'
+        versioned_bugfix_genomes_url = f'{genomes_url}_{"".join(version.split("."))}/'
+        genomes_url = f'{genomes_url}/'  # putting the tralining / back
+
+        urls_to_try = [genomes_url, versioned_bugfix_genomes_url, versioned_genomes_url]
+
+        if genomes_url.startswith('s3://'):
+            for url in urls_to_try:
+                try:
+                    utils.run_simple(f'aws s3 ls {url}')
+                except:
+                    pass
+                else:
+                    utils.run_simple(f'aws s3 sync {url} {target_genomes_dir}')
+                    return target_genomes_dir
+            utils.critical(f'Cannot find reference data at s3. Tried URLs: {urls_to_try}')
+
+        elif genomes_url.startswith('gds://'):
+            for url in urls_to_try:
+                try:
+                    utils.run_simple(f'iap folders list {url} | grep -v -q "No folders found"')
+                except:
+                    pass
+                else:
+                    utils.run_simple(f"iap files download {url}/* {target_genomes_dir}")
+                    return target_genomes_dir
+            utils.critical(f'Cannot find reference data at GDS. Tried URLs: {urls_to_try}')
+
 
