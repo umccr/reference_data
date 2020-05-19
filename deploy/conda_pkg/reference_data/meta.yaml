@@ -1,0 +1,31 @@
+{% set version=load_setup_py_data().get('version') %}
+
+package:
+  name: reference_data
+  version: "{{ version }}"
+
+source:
+  path: ../../../
+
+build:
+  number: 0
+
+requirements:
+  build:
+    - python ==3.7.*
+    - versionpy
+    - pyyaml
+  run:
+    - python ==3.7.*
+    - versionpy
+    - pyyaml
+
+test:
+  imports:
+    - reference_data.api
+
+about:
+  home: https://github.com/umccr/reference_data
+  license: GNU General Public License v3 (GPLv3)
+  summary: 'UMCCR reference data version tracking'
+  license_family: GPL3
