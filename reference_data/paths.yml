@@ -145,6 +145,7 @@ generic:
       fa_plus_gdc_viruses:     hg38/viral/hg38_noalt_plus_gdc_viral.fa
       panel_of_normals_dir:    hg38/panel_of_normals
       problem_regions_dir:     hg38/problem_regions
+      blacklist:               hg38/problem_regions/ENCODE/encode4_unified_blacklist.bed.gz
       gnomad:                  hg38/gnomad_genome.r2.1.common_pass_clean.norm.vcf.gz
       purple_gc:               hg38/hmf/GC_profile.1000bp.cnp
       purple_het:              hg38/hmf/GermlineHetPon.hg38.vcf.gz
