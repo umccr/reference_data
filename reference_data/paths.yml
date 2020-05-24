@@ -46,7 +46,7 @@ raijin:
   genomes:
     all:
       iedb_dir:              /g/data3/gx8/extras/iedb
-      hg19ToHg38:            /g/data3/gx8/extras/hg19ToHg38.over.chain.gz
+      hg19ToHg38:            /g/data3/gx8/extras/liftover_chains/hg19ToHg38.over.chain.gz
 #    GRCh37:
 #      bwa:                  '/g/data/gx8/local/development/bcbio/genomes/Hsapiens/GRCh37/bwa/GRCh37.fa'
 #      gtf:                  '/g/data/gx8/local/development/bcbio/genomes/Hsapiens/GRCh37/rnaseq/ref-transcripts.gtf'
