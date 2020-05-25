@@ -16,7 +16,7 @@ def load_paths():
         to human reference genomes and extras
     """
     with open(join(package_path(), 'paths.yml')) as f:
-        loc_by_name = yaml.full_load(f)
+        loc_by_name = yaml.load(f)
 
     loc_dict = loc_by_name['generic']
     if 'TRAVIS' in os.environ.keys():
