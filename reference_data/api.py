@@ -217,8 +217,8 @@ def _set_up_new_genomes_dir(genomes_url=None):
     else:
         if genomes_url.endswith('/'):  # dropping the trailing /
             genomes_url = genomes_url[:-1]
-        versioned_full_genomes_url = f'{genomes_url}_{"".join(version.split("."))}/'
-        versioned_genomes_url = f'{genomes_url}_{"".join(version.split(".")[0:2])}/'
+        versioned_full_genomes_url = f'{genomes_url}_{".".join(version.split("."))}/'
+        versioned_genomes_url = f'{genomes_url}_{".".join(version.split(".")[0:2])}/'
         genomes_url = f'{genomes_url}/'  # putting the tralining / back
 
         urls_to_try = [versioned_full_genomes_url, versioned_genomes_url, genomes_url]
@@ -230,7 +230,7 @@ def _set_up_new_genomes_dir(genomes_url=None):
                 except:
                     pass
                 else:
-                    utils.run_simple(f'aws s3 sync {url} {target_genomes_dir}')
+                    utils.run_simple(f'aws s3 sync --only-show-errors {url} {target_genomes_dir}')
                     return target_genomes_dir
             utils.critical(f'Cannot find reference data at s3. Tried URLs: {urls_to_try}')
 
