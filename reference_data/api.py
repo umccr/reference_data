@@ -160,7 +160,7 @@ def find_genomes_dir(_new_genomes_url=None):
     tried.append(f'$UMCCRISE_GENOMES env var')
 
     if 'genomes_dir' in loc_dict:
-        gd = loc_dict.get()
+        gd = loc_dict.get('genomes_dir')
         utils.info(f'Using the genomes location from reference_data/paths.yml: {gd}')
         genomes_dir = _set_up_new_genomes_dir(gd)
         return genomes_dir
