@@ -201,17 +201,17 @@ def find_genomes_dir(_new_genomes_url=None):
 
 
 def _set_up_new_genomes_dir(genomes_url=None):
-    target_genomes_dir = utils.safe_mkdir(utils.adjust_path('~/umccrise_genomes'))
+    # a local directory?
+    if isdir(genomes_url):
+        return utils.verify_dir(genomes_url, is_critical=True)
+
     from . import _version
     version = _version.__version__
+    target_genomes_dir = utils.safe_mkdir(utils.adjust_path('~/umccrise_genomes'))
 
     # a local tarball file?
     if isfile(genomes_url) and genomes_url.endswith('.tar.gz') or genomes_url.endswith('.tgz'):
         return utils.extract_tarball_input(genomes_url, target_genomes_dir)
-
-    # a local directory?
-    elif isdir(genomes_url):
-        return utils.verify_dir(genomes_url, is_critical=True)
 
     # s3 or gds url?
     else:
