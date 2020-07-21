@@ -66,8 +66,8 @@ vlad:
   name: vlad
   host_pattern: ^(5180L-135800-M.local|x86_64-apple-darwin13.4.0)$
   cluster_cmd: eval
-  extras:                   /Users/vsaveliev/bio/extras
-  genomes_dir:              /Users/vsaveliev/rjn/extras/vlad/synced/umccr/genomes
+  # extras:                   /Users/vsaveliev/bio/extras
+  # genomes_dir:              /Users/vsaveliev/rjn/extras/vlad/synced/umccr/genomes
   genomes:
     all:
       barcodes_10x:         /Users/vsaveliev/bio/reference_data/4M-with-alts-february-2016.txt
