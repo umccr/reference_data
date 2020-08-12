@@ -8,7 +8,8 @@ Reference data version tracking for internal pipelines like https://github.com/u
 The reference data is versioned via a manifest file, containing md5 sums for each refernece file, create via:
 
 ```
-hashdeep -r hg38 > hg38-manifest.txt
+mamba install -y hashdeep
+hashdeep -r hg38 | sed "s#$(readlink -e $PWD)#.#g" > hg38-manifest.txt
 ```
 
 
