@@ -17,7 +17,6 @@ generic:
       hmf_giab_conf:           GRCh37/hmf/NA12878_GIAB_highconf_IllFB-IllGATKHC-CG-Ion-Solid_ALLCHROM_v3.2.2_highconf.bed.gz
       hmf_mappability:         GRCh37/hmf/out_150_hg19.mappability.bed.gz
       coding_regions:          GRCh37/hmf/coding_regions.bed
-      gridss_purple_linx_dir:  GRCh37/hmf/gridss
       snpeff:                  GRCh37/snpeff/data/GRCh37.75
       noalt_bed:               GRCh37/GRCh37_noalt.bed
       pyensembl_data:          GRCh37/pyensembl
@@ -45,6 +44,9 @@ generic:
       hmf_giab_conf:           hg38/hmf/NA12878_GIAB_highconf_IllFB-IllGATKHC-CG-Ion-Solid_ALLCHROM_v3.2.2_highconf.bed.gz
       hmf_mappability:         hg38/hmf/out_150_hg19.mappability.bed.gz
       coding_regions:          hg38/hmf/coding_regions.bed
+      gridss_breakend_pon:     hg38/hmf/gridss_pon_single_breakend.hg38.bed
+      gridss_bp_pon:           hg38/hmf/gridss_pon_breakpoint.hg38.bedpe
+      gridss_bp_hotspots:      hg38/hmf/KnownFusionPairs.hg38.bedpe
       snpeff:                  hg38/snpeff/data/GRCh38.92
       noalt_bed:               hg38/hg38_noalt.bed
       pyensembl_data:          hg38/pyensembl
