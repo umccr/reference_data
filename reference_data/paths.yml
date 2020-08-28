@@ -41,7 +41,8 @@ generic:
       purple_gc:               hg38/hmf/GC_profile.1000bp.cnp
       purple_het:              hg38/hmf/GermlineHetPon.hg38.vcf.gz
       hotspots:                hg38/hotspots/merged.vcf.gz
-      hmf_giab_conf:           hg38/hmf/NA12878_GIAB_highconf_IllFB-IllGATKHC-CG-Ion-Solid_ALLCHROM_v3.2.2_highconf.bed.gz
+      hmf_pon:                 hg38/hmf/SageGermlinePon.hg38.98x.vcf.gz
+      hmf_giab_conf:           hg38/hmf/HG001_GRCh38_GIAB_highconf_CG-IllFB-IllGATKHC-Ion-10X-SOLID_CHROM1-X_v.3.3.2_highconf_nosomaticdel_noCENorHET7.bed.gz
       hmf_mappability:         hg38/hmf/out_150_hg19.mappability.bed.gz
       coding_regions:          hg38/hmf/coding_regions.bed
       gridss_breakend_pon:     hg38/hmf/gridss_pon_single_breakend.hg38.bed
