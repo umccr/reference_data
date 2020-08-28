@@ -29,6 +29,19 @@ def load_paths():
                     break
     return loc_dict
 
+
+def guess_host_name():
+    """ Just a handy function for external use
+    """
+    with open(join(package_path(), 'paths.yml')) as f:
+        loc_by_name = yaml.load(f, Loader=yaml.FullLoader)
+    for ld in loc_by_name.values():
+        if 'host_pattern' in ld:
+            if re.match(ld['host_pattern'], utils.hostname):
+                return ld['name']
+    return None
+
+
 loc_dict = load_paths()
 
 name = loc_dict.get('name')
