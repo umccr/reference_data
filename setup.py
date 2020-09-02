@@ -1,16 +1,15 @@
 #!/usr/bin/env python
 from setuptools import setup
-
-import reference_data
-pkg = reference_data.__name__
-
 import versionpy
+
+pkg = 'reference_data'
+
 version = versionpy.get_version(pkg)
 
 setup(
     name=pkg,
     version=version,
-    author='Vlad Saveliev',
+    author='Vlad Saveluev',
     author_email='vladislav.saveliev@unimelb.edu.au',
     description='Versioning of reference data used in UMCCR pipelines, and python API to access it',
     keywords='bioinformatics',
