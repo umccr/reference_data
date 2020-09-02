@@ -2,7 +2,7 @@
 
 package:
   name: reference_data
-    version: {{ data.version }}
+  version: {{ data.version }}
 
 source:
   path: ../../
