@@ -21,6 +21,9 @@ setup(
     package_data={
         pkg: versionpy.find_package_files('', pkg),
     },
+    scripts=[
+        'scripts/reference_data_pull'
+    ],
     include_package_data=True,
     zip_safe=False,
     install_requires=versionpy.get_reqs(),

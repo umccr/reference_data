@@ -19,6 +19,7 @@ requirements:
     - python {{ python }}
     - versionpy
     - pyyaml
+    - dvc
 
 test:
   imports:

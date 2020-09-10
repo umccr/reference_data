@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+GENOME_BUILD=${1:-"hg38"}
+
+TARGET_DIR=genomes/${GENOME_BUILD}
+if [[ -e "${TARGET_DIR}" ]]; then
+    echo "The target directory $TARGET_DIR exists. Run 'dvc pull' manually if you want to update the data."
+    exit 1
+fi
+
+if ( ! dvc --version ); then
+    echo "Please, install dvc (e.g. 'conda install dvc' or 'brew install dvc')"
+    exit 1
+fi
+
+mkdir -p "${TARGET_DIR}"
+dvc pull
