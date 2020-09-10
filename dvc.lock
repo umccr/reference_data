@@ -1,0 +1,5 @@
+copy_hg38:
+  cmd: rsync -trv /g/data/gx8/extras/umccrise_genomes/hg38 genomes/
+  outs:
+  - path: genomes/hg38
+    md5: 1a29ca17ec03583f63fceaffd710d547.dir
