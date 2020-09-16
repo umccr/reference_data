@@ -91,7 +91,7 @@ def get_ref_file(genome='all', key='fa', path=None, must_exist=True):
     # Resolve found path:
     if not path.startswith('/'):
         if genomes_dir:
-            if not isdir(genomes_dir):
+            if not exists(genomes_dir):
                 if must_exist:
                     utils.critical(f'Could not find the genomes directory {genomes_dir} for host '
                              f'{name or utils.hostname}')
@@ -215,7 +215,7 @@ def find_genomes_dir(_new_genomes_url=None):
 
 def _set_up_new_genomes_dir(genomes_url=None):
     # a local directory?
-    if isdir(genomes_url):
+    if exists(genomes_url):
         return utils.verify_dir(genomes_url, is_critical=True)
 
     from . import _version
