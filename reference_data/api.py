@@ -258,3 +258,4 @@ def _set_up_new_genomes_dir(genomes_url=None):
                     return target_genomes_dir
             utils.critical(f'Cannot find reference data at GDS. Tried URLs: {urls_to_try}')
 
+    utils.critical(f'ERROR: the genomes directory {genomes_url} doen\'t exist')
