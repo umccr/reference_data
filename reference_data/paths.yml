@@ -104,4 +104,4 @@ umccrise_docker:
   host_pattern: ^umccrise_docker$
   extras: ''
   cluster: null
-  genomes_dir: /work/genomes
+  genomes_dir: /reference_data/genomes
