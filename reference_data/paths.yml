@@ -51,6 +51,7 @@ generic:
       snpeff:                  hg38/snpeff/data/GRCh38.92
       noalt_bed:               hg38/hg38_noalt.bed
       pyensembl_data:          hg38/pyensembl
+      pizzly_ref_fa:           hg38/hg38-noversions.fa
       truth_sets:
         giab:
           bed:                 hg38/truth_regions.bed
@@ -104,4 +105,4 @@ umccrise_docker:
   host_pattern: ^umccrise_docker$
   extras: ''
   cluster: null
-  genomes_dir: /reference_data/genomes
+  genomes_dir: /work/reference_data/genomes
