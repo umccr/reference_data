@@ -1,5 +1,0 @@
-stages:
-  copy_hg38:
-    cmd: rsync -trv /g/data/gx8/extras/umccrise_genomes/hg38 genomes/
-    outs:
-    - genomes/hg38
