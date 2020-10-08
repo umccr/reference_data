@@ -6,6 +6,7 @@ package:
 
 source:
   path: ../../
+  noarch: python
 
 build:
   number: 0
