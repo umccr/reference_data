@@ -15,7 +15,7 @@ jobs:
 
       # https://docs.github.com/en/free-pro-team@latest/actions/reference/workflow-commands-for-github-actions#adding-a-system-path
       - name: Add miniconda to PATH
-        run: echo "${HOME}/miniconda3/bin" >> $GITHUB_ENV
+        run: echo "PATH=${HOME}/miniconda3/bin" >> $GITHUB_ENV
 
       - name: Setup conda
         run: |
