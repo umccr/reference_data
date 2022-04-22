@@ -1,0 +1,19 @@
+name: umccr_refdata
+
+channels:
+  - bioconda
+  - conda-forge
+  - defaults
+
+dependencies:
+  # Base
+  - python >=3.8
+  - black
+  - bump2version
+  - flake8
+  - pip
+  - pre-commit
+  - pylint >=2.5
+  # Dependencies
+  - pip:
+      - '-r requirements.txt'

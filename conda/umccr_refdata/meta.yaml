@@ -1,0 +1,29 @@
+{% set data = load_setup_py_data() %}
+
+package:
+  name: umccr_refdata
+  version: {{ data.version }}
+
+source:
+  path: ../../
+
+build:
+  noarch: python
+  number: 0
+  script: {{ PYTHON }} -m pip install . -vv
+
+requirements:
+  host:
+    - python >=3.8
+  run:
+    - python >=3.8
+    - pyyaml
+
+test:
+  imports:
+    - umccr_refdata.api
+
+about:
+  home: {{ data.url }}
+  license: {{ data.license }}
+  summary: {{ data.description }}

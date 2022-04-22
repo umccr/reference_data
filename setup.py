@@ -1,30 +1,21 @@
 #!/usr/bin/env python
-from setuptools import setup
-import versionpy
+import setuptools
 
-pkg = 'reference_data'
 
-version = versionpy.get_version(pkg)
+import umccr_refdata
 
-setup(
-    name=pkg,
-    version=version,
-    author='Vlad Saveluev',
-    author_email='vladislav.saveliev@unimelb.edu.au',
-    description='Versioning of reference data used in UMCCR pipelines, and python API to access it',
-    keywords='bioinformatics',
-    url='https://github.com/umccr/' + pkg,
-    license='GPLv3',
-    packages=[
-        pkg,
-    ],
-    package_data={
-        pkg: versionpy.find_package_files('', pkg),
-    },
-    scripts=[
-        'scripts/reference_data_pull'
-    ],
-    include_package_data=True,
-    zip_safe=False,
-    install_requires=versionpy.get_reqs(),
+
+setuptools.setup(
+    name='umccr_refdata',
+    version=umccr_refdata.__version__,
+    description='UMCCR reference data API',
+    long_description=open('README.md', 'r').read(),
+    long_description_content_type='text/markdown',
+    author='UMCCR and Contributors',
+    author_email='services@umccr.org',
+    packages=setuptools.find_packages(),
+    package_data={'umccr_refdata': ['paths.yml']},
+    python_requires='>=3.8',
+    license='GPL',
+    url='https://github.com/umccr/reference_data',
 )
