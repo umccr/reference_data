@@ -1,0 +1,5 @@
+outs:
+- md5: 425afa5a975cabd558c6f9795417d703.dir
+  size: 19198173276
+  nfiles: 16
+  path: genomes
