@@ -1,58 +1,106 @@
 # UMCCR reference data
 
-Reference data version tracking for internal pipelines like https://github.com/umccr/umccrise and https://github.com/umccr/RNAsum
+Reference data and API for UMCCR workflows and tools.
 
+## Contents
 
-## Versioning
+* [Quick start](#quick-start)
+* [Installation](#installation)
+* [Requirements](#requirements)
+* [Data](#data)
+* [Usage](#usage)
+* [License](#license)
 
-The reference data is versioned via a manifest file, containing md5 sums for each refernece file, create via:
+## Quick start
 
-```
-mamba install -y hashdeep
-hashdeep -r hg38 | sed "s#$(readlink -e $PWD)#.#g" > hg38-manifest.txt
-```
+> *To be completed*
 
-
-## Python API
-
-This package also provides a python API to access the reference data.
-
-[reference_data/paths.yml](reference_data/paths.yml) contains default data paths and settings for common UMCCR clusters.
-
-`from reference_data import api as refdata` is a python API that can detect the machine based on `hostname`.
-
-Usage:
-
-```
->>> from reference_data import api as refdata
->>> refdata.name
-'spartan'
-
->>> refdata.set_genomes_dir('/g/data3/gx8/extras/umccrise/genomes')
-
->>> refdata.get_ref_file(genome='hg38', key='fa')
-'/g/data3/gx8/extras/umccrise/genomes/hg38.fa'
-
->>> refdata.get_ref_file('hg38', 'gnomad')
-'/g/data3/gx8/extras/umccrise/genomes/gnomad_genome.r2.1.common_pass_clean.norm.vcf.gz'
-
->>> refdata.get_ref_file('hg38', ['truth_sets', 'giab', 'bed'])
-'/g/data3/gx8/local/development/bcbio/genomes/Hsapiens/hg38/validation/giab-NA12878/truth_regions.bed'
-
->>> refdata.get_genomes_dict('hg38')['truth_sets']['giab']['bed']
-'/g/data3/gx8/local/development/bcbio/genomes/Hsapiens/hg38/validation/giab-NA12878/truth_regions.bed'
+```bash
+umccr_refdata pull --bundle umccrise --output_dir ./refdata_umccrise/
 ```
 
-Available genomes:
+## Installation
 
-- `"hg38"`
-- `"GRCh37"`
-
-Available keys: see [reference_data/paths.yml](reference_data/paths.yml)
-
-Installation:
-
+```bash
+conda install -c umccr umccr_refdata
+pip install git+https://github.com/umccr/reference_data
 ```
-git clone https://github.com/umccr/reference_data
-pip install reference_data
+
+## Requirements
+
+Python, and the following packages:
+
+* PyYAML
+
+The following packages are required to download data:
+
+* DVC
+* DVC[s3] (*required only for S3 remotes*)
+* DVC[gdrive] (*required only for gdrive remotes*)
+
+## Usage
+
+> *To be completed*
+
+```bash
+umccr_refdata pull --bundle <predefined_bundle> --output_dir ./refdata_bundle/
 ```
+
+```bash
+import umccr_refdata
+
+reference_genome_fp = umccr_refdata.get_genome(identifier='hg38')
+```
+
+## Data
+
+### Genomes
+
+Top level directory: `./reference_data/genomes/`
+
+| Data          | Description   |
+| --            | --            |
+| hg38          | 1000 Genomes Project hg38 reference genome ([link](https://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/reference/GRCh38_reference_genome/)). |
+| hg38_noalt    | Reference hg38 genome with chr1-22, chrX, chrY, and chrM. No documentation. |
+
+### Umccrise
+
+Top level directory: `./reference_data/umccrise/`
+
+| Data              | Description   |
+| --                | --            |
+| bwa               | BWA indices for hg38. |
+| gnomad            | Processed gnomAD variants ([link](https://github.com/umccr/umccrise/#gnomad])). |
+| cacao             | cacao reference data ([link](https://github.com/sigven/cacao)). |
+| hmf               | Selected HMFtools data (see [source](https://nextcloud.hartwigmedicalfoundation.nl/s/LTiKTd8XxBqwaiC?path=%2FHMFTools-Resources) and [processing](https://github.com/umccr/umccrise/#building-reference-data)). |
+| hotspots          | Compiled mutational hotspots ([link](https://github.com/umccr/umccrise/#hotspots)). |
+| panel_of_normals  | UMCCR panel of normals ([link](https://github.com/umccr/vcf_stuff/tree/master/vcf_stuff/panel_of_normals). |
+| pcgr              | PCGR reference data ([link](https://sigven.github.io/pcgr/articles/installation.html#step-1-download-data-bundle)). |
+| problem_regions   | Merged problem regions ([link](https://github.com/umccr/umccrise/#problem-regions)). |
+| pyensembl         | Ensembl data for PyEnsembl ([link](https://github.com/openvax/pyensembl#installation)). |
+| snpeff            | snpEff database ([link](https://github.com/umccr/umccrise/#snpeff)). |
+| viral             | Genomic data commons viral sequences obtained from CloudBioLinux ([link](https://s3.amazonaws.com/biodata/collections/GRCh37/viral/gdc-viral.fa)). No documentation. |
+
+### HMFtools
+
+Top level directory: `./reference_data/hmftools/`
+
+> Downloaded from the Hartwig Medical Foundation Nextcloud instance on 15/02/2022
+> ([link](https://nextcloud.hartwigmedicalfoundation.nl/s/LTiKTd8XxBqwaiC?path=%2FHMFTools-Resources)).
+
+| Data                  | Description   |
+| --                    | --            |
+| amber                 | Selected germline heterozygous SNP sites for AMBER. |
+| cobalt                | COBALT GC profile. |
+| ensemble_data_cache   | Derivated data generated from the Ensembl database. |
+| gene_panel            | Driver gene panel. |
+| gridss                | GRIDSS PON and problem region list ([link](https://github.com/PapenfussLab/gridss/blob/bd7da/example/ENCFF356LFX.bed)). |
+| known_fusions         | Curated known fusion data. |
+| linx                  | Curated known fragile sites and LINE source regions. |
+| repeatmasker          | RepeatMasker database. |
+| sage                  | Known SAGE hotspots. |
+
+## License
+
+Software and code in this repository are provided under the [GNU General Public License
+v3.0](https://www.gnu.org/licenses/gpl-3.0.en.html) unless otherwise indicated.
