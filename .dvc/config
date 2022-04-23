@@ -1,4 +1,6 @@
 [core]
-    remote = storage
-['remote "storage"']
+    remote = storage-s3
+['remote "storage-s3"']
     url = s3://umccr-refdata-dev/dvc-storage
+['remote "storage-gdrive"']
+    url = gdrive://1AHh6bq8EkOqzCwM2XQHh4XybeZQNo-q2/
