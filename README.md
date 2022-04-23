@@ -70,7 +70,7 @@ Top level directory: `./reference_data/umccrise/`
 | Data              | Description   |
 | --                | --            |
 | bwa               | BWA indices for hg38. |
-| gnomad            | Processed gnomAD variants ([link](https://github.com/umccr/umccrise/#gnomad])). |
+| gnomad            | Processed gnomAD variants ([link](https://github.com/umccr/umccrise/#gnomad)). |
 | cacao             | cacao reference data ([link](https://github.com/sigven/cacao)). |
 | hmf               | Selected HMFtools data (see [source](https://nextcloud.hartwigmedicalfoundation.nl/s/LTiKTd8XxBqwaiC?path=%2FHMFTools-Resources) and [processing](https://github.com/umccr/umccrise/#building-reference-data)). |
 | hotspots          | Compiled mutational hotspots ([link](https://github.com/umccr/umccrise/#hotspots)). |
