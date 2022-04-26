@@ -81,7 +81,7 @@ Top level directory: `./reference_data/umccrise/`
 | cacao             | cacao reference data ([link](https://github.com/sigven/cacao)). |
 | hmf               | Selected HMFtools data (see [source](https://nextcloud.hartwigmedicalfoundation.nl/s/LTiKTd8XxBqwaiC?path=%2FHMFTools-Resources) and [processing](https://github.com/umccr/umccrise/#building-reference-data)). |
 | hotspots          | Compiled mutational hotspots ([link](https://github.com/umccr/umccrise/#hotspots)). |
-| panel_of_normals  | UMCCR panel of normals ([link](https://github.com/umccr/vcf_stuff/tree/master/vcf_stuff/panel_of_normals). |
+| panel_of_normals  | UMCCR panel of normals ([link](https://github.com/umccr/vcf_stuff/tree/master/vcf_stuff/panel_of_normals)). |
 | pcgr              | PCGR reference data ([link](https://sigven.github.io/pcgr/articles/installation.html#step-1-download-data-bundle)). |
 | problem_regions   | Merged problem regions ([link](https://github.com/umccr/umccrise/#problem-regions)). |
 | pyensembl         | Ensembl data for PyEnsembl ([link](https://github.com/openvax/pyensembl#installation)). |
