@@ -49,6 +49,8 @@ The following packages are required to download data:
 umccr_refdata pull --bundle <predefined_bundle> --output_dir ./refdata_bundle/
 ```
 
+See [`refdata_information.yaml`](umccr_refdata/refdata_information.yaml) for defined bundles.
+
 ```bash
 import umccr_refdata
 

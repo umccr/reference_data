@@ -1,0 +1,136 @@
+configuration:
+  dvc_remote_name: storage-s3
+  git_repo_url: https://github.com/umccr/reference_data
+  git_tag: HEAD
+
+bundles:
+  umccrise:
+    # NOTE(SW): using the directory containing all Umccrise reference data to
+    # simplify representations of data
+    - umccrise_dir
+
+  amber:
+    - amber_germline_hets_pon
+
+  cobalt:
+    - cobalt_gc_profile
+
+  gridss:
+    - genome_fasta
+    - gridss_indices
+    - gridss_exclude_list
+
+  gripss:
+    - genome_fasta
+    - gridss_pon_bp
+    - gridss_pon_be
+    - hmf_known_fusions
+
+  purple:
+    - genome_fasta
+    - cobalt_gc_profile
+    - sage_hotspots
+    - hmf_driver_panel
+    - hmf_ensembl_data_cache
+
+  linx:
+    - linx_fragile_sites
+    - linx_line_elements
+    - hmf_driver_panel
+    - hmf_ensembl_data_cache
+
+files:
+  genome_fasta:
+    - path: genomes/hg38.fa
+  bwa_indices:
+    - paths:
+      - genomes/hg38.fa.amb
+      - genomes/hg38.fa.ann
+      - genomes/hg38.fa.bwt
+      - genomes/hg38.fa.pac
+      - genomes/hg38.fa.sa
+  samtools_index:
+    - path: genomes/hg38.fa.fai
+
+  gridss_indices:
+    - paths:
+      - genomes/hg38.fa.dict
+      - genomes/hg38.fa.gridsscache
+      - genomes/hg38.fa.img
+  gridss_exclude_list:
+    - path: hmftools/gridss/ENCFF356LFX.bed
+  gridss_pon_bp:
+    - path: hmftools/gridss/gridss_pon_breakpoint.38.bedpe
+  gridss_pon_be:
+    - path: hmftools/gridss/gridss_pon_single_breakend.38.bed
+  cobalt_gc_profile:
+    - path: hmftools/cobalt/GC_profile.1000bp.cnp
+  amber_germline_hets_pon:
+    - path: hmftools/amber/GermlineHetPon.hg38.vcf.gz
+  hmf_driver_panel:
+    - path: hmftools/gene_panel/DriverGenePanel.38.tsv
+  hmf_known_fusions:
+    - path: hmftools/known_fusions/known_fusions.38.bedpe
+  hmf_known_fusions_data:
+    - path: hmftools/known_fusions/known_fusion_data.38.csv
+  hmf_ensembl_data_cache:
+    - path: hmftools/ensembl_data_cache/
+  sage_hotspots:
+    - path: hmftools/sage/KnownHotspots.somatic.38.vcf.gz
+  linx_fragile_sites:
+    - path: hmftools/linx/fragile_sites_hmf.38.csv
+  linx_line_elements:
+    - path: hmftools/linx/line_elements.38.csv
+
+  # Umccrise reference files
+  # NOTE(SW) setting umccrise_dir to ease data bundling
+  umccrise_dir:
+    - path: umccrise/
+  umccrise_fa:
+    - path: umccrise/hg38.fa
+  umccrise_bwa:
+    - path: umccrise/bwa/hg38.fa
+  umccrise_cacao_data:
+    - path: umccrise/cacao/data/
+  umccrise_pcgr_data:
+    - path: umccrise/pcgr/data/
+  umccrise_gdc_viral_fa:
+    - path: umccrise/viral/gdc-viral.fa
+  umccrise_fa_plus_gdc_viruses:
+    - path: umccrise/viral/hg38_noalt_plus_gdc_viral.fa
+  umccrise_panel_of_normals_dir:
+    - path: umccrise/panel_of_normals
+  umccrise_problem_regions_dir:
+    - path: umccrise/problem_regions
+  umccrise_blacklist:
+    - path: umccrise/problem_regions/ENCODE/encode4_unified_blacklist.bed.gz
+  umccrise_gnomad:
+    - path: umccrise/gnomad_genome.r2.1.common_pass_clean.norm.vcf.gz
+  umccrise_purple_gc:
+    - path: umccrise/hmf/GC_profile.1000bp.cnp
+  umccrise_purple_het:
+    - path: umccrise/hmf/GermlineHetPon.hg38.vcf.gz
+  umccrise_hotspots:
+    - path: umccrise/hotspots/merged.vcf.gz
+  umccrise_hmf_pon:
+    - path: umccrise/hmf/SageGermlinePon.hg38.98x.vcf.gz
+  umccrise_hmf_giab_conf:
+    - path: umccrise/hmf/HG001_GRCh38_GIAB_highconf_CG-IllFB-IllGATKHC-Ion-10X-SOLID_CHROM1-X_v.3.3.2_highconf_nosomaticdel_noCENorHET7.bed.gz
+  umccrise_hmf_mappability:
+    - path: umccrise/hmf/out_150_hg19.mappability.bed.gz
+  umccrise_coding_regions:
+    - path: umccrise/hmf/coding_regions.bed
+  umccrise_gridss_breakend_pon:
+    - path: umccrise/hmf/gridss_pon_single_breakend.hg38.bed
+  umccrise_gridss_bp_pon:
+    - path: umccrise/hmf/gridss_pon_breakpoint.hg38.bedpe
+  umccrise_gridss_bp_hotspots:
+    - path: umccrise/hmf/KnownFusionPairs.hg38.bedpe
+  umccrise_snpeff:
+    - path: umccrise/snpeff/data/GRCh38.92
+  umccrise_noalt_bed:
+    - path: umccrise/hg38_noalt.bed
+  umccrise_pyensembl_data:
+    - path: umccrise/pyensembl
+  umccrise_pizzly_ref_fa:
+    - path: umccrise/hg38-noversions.fa

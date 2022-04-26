@@ -1,4 +1,7 @@
 #!/usr/bin/env python
+# pylint: disable=consider-using-with,unspecified-encoding
+
+
 import setuptools
 
 
@@ -13,8 +16,11 @@ setuptools.setup(
     long_description_content_type='text/markdown',
     author='UMCCR and Contributors',
     author_email='services@umccr.org',
+    entry_points={
+        'console_scripts': ['umccr_refdata=umccr_refdata.cli:entry'],
+    },
     packages=setuptools.find_packages(),
-    package_data={'umccr_refdata': ['paths.yml']},
+    package_data={'umccr_refdata': ['refdata_information.yaml']},
     python_requires='>=3.8',
     license='GPL',
     url='https://github.com/umccr/reference_data',
