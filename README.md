@@ -2,6 +2,9 @@
 
 Reference data and API for UMCCR workflows and tools.
 
+> Note that Umccrise reference data will be further reorganised in the future for consistency. This will be performed in
+> concert with updates to Umccrise component software and modularisation.
+
 ## Contents
 
 * [Quick start](#quick-start)
@@ -61,7 +64,6 @@ Top level directory: `./reference_data/genomes/`
 | Data          | Description   |
 | --            | --            |
 | hg38          | 1000 Genomes Project hg38 reference genome ([link](https://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/reference/GRCh38_reference_genome/)). |
-| hg38_noalt    | Reference hg38 genome with chr1-22, chrX, chrY, and chrM. No documentation. |
 
 ### Umccrise
 
@@ -69,6 +71,9 @@ Top level directory: `./reference_data/umccrise/`
 
 | Data              | Description   |
 | --                | --            |
+| hg38              | 1000 Genomes Project hg38 reference genome ([link](https://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/reference/GRCh38_reference_genome/)). |
+| hg38_noalt        | Reference hg38 genome with chr1-22, chrX, chrY, and chrM. No documentation. |
+| hg38_noversion    | Appears to be the reference hg38 genome transcripts. No documentation. |
 | bwa               | BWA indices for hg38. |
 | gnomad            | Processed gnomAD variants ([link](https://github.com/umccr/umccrise/#gnomad)). |
 | cacao             | cacao reference data ([link](https://github.com/sigven/cacao)). |
