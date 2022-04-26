@@ -1,5 +1,7 @@
 [core]
     remote = storage-s3
+[cache]
+    type = "reflink,hardlink,symlink"
 ['remote "storage-s3"']
     url = s3://umccr-refdata-dev/dvc-storage
 ['remote "storage-gdrive"']
