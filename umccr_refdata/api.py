@@ -74,7 +74,7 @@ def pull_bundle(
     if remote_type == 'gdrive' and 'GDRIVE_CREDENTIALS_DATA' not in os.environ:
         msg = (
             'Pulling from a gdrive remote currently requires that the \'GDRIVE_CREDENTIALS_DATA\''
-            'environment variable is defined'
+            ' environment variable is defined'
         )
         LOGGER.error(msg)
         sys.exit(1)
