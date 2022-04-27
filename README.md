@@ -34,12 +34,13 @@ pip install git+https://github.com/umccr/reference_data
 Python, and the following packages:
 
 * PyYAML
-
-The following packages are required to download data:
-
 * DVC
 * DVC[s3] (*required only for S3 remotes*)
 * DVC[gdrive] (*required only for gdrive remotes*)
+
+Other software requirements:
+
+* git
 
 ## Usage
 

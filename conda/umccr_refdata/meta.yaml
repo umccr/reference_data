@@ -17,6 +17,10 @@ requirements:
     - python >=3.8
   run:
     - python >=3.8
+    - dvc
+    - dvc-gdrive
+    - dvc-s3
+    - git
     - pyyaml
 
 test:

@@ -15,5 +15,6 @@ dependencies:
   - pre-commit
   - pylint >=2.5
   # Dependencies
+  - git
   - pip:
       - '-r requirements.txt'
