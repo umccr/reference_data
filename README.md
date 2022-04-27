@@ -10,23 +10,29 @@ Reference data and API for UMCCR workflows and tools.
 * [Quick start](#quick-start)
 * [Installation](#installation)
 * [Requirements](#requirements)
-* [Data](#data)
 * [Usage](#usage)
+* [Limitations](#limitations)
+* [Data](#data)
 * [License](#license)
 
 ## Quick start
 
-> *To be completed*
-
 ```bash
+# Pull the Umccrise reference data bundle
 umccr_refdata pull --bundle umccrise --output_dir ./refdata_umccrise/
+
+# Get location of the genome FASTA file
+umccr_refdata locate --identifier genome_fasta
 ```
 
 ## Installation
 
 ```bash
+# Conda package
 conda install -c umccr umccr_refdata
-pip install git+https://github.com/umccr/reference_data
+
+# Directly from the GitHub repo
+pip install git+https://github.com/umccr/reference_data@dev
 ```
 
 ## Requirements
@@ -44,19 +50,98 @@ Other software requirements:
 
 ## Usage
 
-> *To be completed*
+The `umccr_refdata` package provides two major functionalities:
+
+1. download reference data bundles for specific tools or workflows
+1. retrieving path for reference files from a symbolic identifier
+
+Both can be invoked either via the CLI or API.
+
+### Downloading bundles
+
+A reference data bundle represents the required set of reference data files for a particular tool or workflow e.g.
+Umccrise or GRIDSS. Abstracting reference data files in this way simplifies retrieval from a DVC remote; all required
+reference data files can be pulled with a single command and no unnecessary files are downloaded. See
+[`refdata_information.yaml`](umccr_refdata/refdata_information.yaml) for defined bundles.
+
+Behaviour of the bundle download process can be configured with several options:
+
+* `--git_tag`/`git_tag`: Git tag used to checkout the DVC repository [*also accepts branch names*]
+* `--git_repo_url`/`git_repo_url`: GitHub URL containing the DVC repository
+* `--dvc_remote_name`/`dvc_remote_name`: DVC remote name e.g. `storage-s3`, `storage-gdrive`
+* `--cache_dir`/`cache_dir`: Local filepath for the DVC cache directory
+
+#### CLI
 
 ```bash
-umccr_refdata pull --bundle <predefined_bundle> --output_dir ./refdata_bundle/
+# Basic usage
+umccr_refdata pull --bundle GRIDSS --output_dir ./reference_data/
+
+# Set specific git tag and DVC remote
+umccr_refdata pull --bundle GRIDSS --output_dir ./reference_data/ --git_tag 2.0.0 --dvc_remote_name storage-gdrive
 ```
 
-See [`refdata_information.yaml`](umccr_refdata/refdata_information.yaml) for defined bundles.
+#### API
+
+```python
+import pathlib
+
+
+import umccr_refdata.util
+import umccr_refdata.api
+
+
+output_dir = pathlib.Path('reference_data')
+refdata_info_fp = umccr_refdata.util.get_refdata_information_fp()
+refdata_info = umccr_refdata.api.read_refdata_information(refdata_info_fp)
+
+# Basic usage
+umccr_refdata.api.pull_bundle('GRIDSS', output_dir, refdata_info)
+
+# Set specific git tag and DVC remote
+umccr_refdata.api.pull_bundle('GRIDSS', output_dir, refdata_info, git_tag='2.0.0', dvc_remote_name='storage-gdrive')
+```
+
+### Locating reference files
+
+Individual reference data files are associated with a symbolic identifier e.g. `genome_fasta` maps to the filepath of
+the hg38 FASTA file. This mapping enables external programs to refer to files with a stable identifier and hence
+minimises the impact of reorganisation of reference files.
+
+Multiple entries under a single identifier (e.g. `genome_fasta` could mapping to different genome versions) can be
+differentiated by defining key-value annotations for entries (e.g. `version: hg38`) and then selecting these with the
+appropriate CLI/API options.
+
+#### CLI
 
 ```bash
-import umccr_refdata
+# Basic usage
+umccr_refdata locate --identifier genome_fasta
 
-reference_genome_fp = umccr_refdata.get_genome(identifier='hg38')
+# Selecting different entries [demonstration example only]
+umccr_refdata locate --identifier genome_fasta --match_dict '{ "version": "my_genome_version" }'
 ```
+
+#### API
+
+```python
+import umccr_refdata.util
+import umccr_refdata.api
+
+refdata_info_fp = umccr_refdata.util.get_refdata_information_fp()
+refdata_info = umccr_refdata.api.read_refdata_information(refdata_info_fp)
+
+# Basic usage
+umccr_refdata.api.locate_file_paths('genome_fasta', refdata_info)
+
+# Selecting different entries [demonstration example only]
+match_dict = {'version': 'my_genome_version'}
+umccr_refdata.api.locate_file_paths('genome_fasta', refdata_info, match_dict=match_dict)
+```
+
+## Limitations
+
+For gdrive remotes, you must set `GDRIVE_CREDENTIALS_DATA` prior to execution.
 
 ## Data
 
@@ -100,7 +185,7 @@ Top level directory: `./reference_data/hmftools/`
 | --                    | --            |
 | amber                 | Selected germline heterozygous SNP sites for AMBER. |
 | cobalt                | COBALT GC profile. |
-| ensemble_data_cache   | Derivated data generated from the Ensembl database. |
+| ensemble_data_cache   | Derivative data generated from the Ensembl database. |
 | gene_panel            | Driver gene panel. |
 | gridss                | GRIDSS PON and problem region list ([link](https://github.com/PapenfussLab/gridss/blob/bd7da/example/ENCFF356LFX.bed)). |
 | known_fusions         | Curated known fusion data. |
