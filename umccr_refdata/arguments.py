@@ -4,6 +4,9 @@ import pathlib
 import sys
 
 
+from . import util
+
+
 def get_arguments():
     """Parses and processes command line arguments.
 
@@ -15,8 +18,7 @@ def get_arguments():
     args = parser.parse_args()
     # Process arguments
     if not hasattr(args, 'refdata_info_fp') or args.refdata_info_fp is None:
-        info_fn = 'data/refdata_information.yaml'
-        args.refdata_info_fp = pathlib.Path(__file__).parent / info_fn
+        args.refdata_info_fp = util.get_refdata_information_fp()
     if args.subparser_name == 'locate':
         if args.match_dict is not None:
             args.match_dict = json.loads(args.match_dict)

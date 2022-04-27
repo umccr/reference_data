@@ -1,4 +1,5 @@
 import logging
+import pathlib
 import subprocess
 import sys
 import urllib.parse
@@ -51,3 +52,13 @@ def get_remote_type(name, dvc_dp):
             continue
         parsed_url = urllib.parse.urlparse(url)
         return parsed_url.scheme if parsed_url.scheme != '' else 'local'
+
+
+def get_refdata_information_fp():
+    """Get the filepath of the reference data information YAML file.
+
+    :returns: Reference data information filepath
+    :rtype: pathlib.Path
+    """
+    info_fn = 'data/refdata_information.yaml'
+    return pathlib.Path(__file__).parent / info_fn
