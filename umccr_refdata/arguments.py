@@ -31,7 +31,7 @@ def get_arguments():
 
 
 def construct_parser():
-    """Constructs commandline argument parser.
+    """Construct commandline argument parser.
 
     :returns: Initialised ArgumentParser instance
     :rtype: argparse.ArgumentParser

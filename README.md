@@ -25,6 +25,8 @@ umccr_refdata pull --bundle umccrise --output_dir ./refdata_umccrise/
 umccr_refdata locate --identifier genome_fasta
 ```
 
+A Python API is also available, see [Usage](#usage).
+
 ## Installation
 
 ```bash

@@ -11,7 +11,6 @@ LOGGER = logging.getLogger(__name__)
 LOGGER.setLevel(logging.DEBUG)
 
 
-# pylint: disable=too-many-arguments,too-many-branches
 def pull_bundle(
     bundle_name, output_dir, refdata_info, git_repo_url=None, dvc_remote_name=None, cache_dir=None, git_tag=None
 ):
@@ -27,6 +26,7 @@ def pull_bundle(
     :returns: None
     :rtype: None
     """
+    # pylint: disable=too-many-arguments,too-many-branches
     # Get reference data bundle information
     if 'bundles' not in refdata_info:
         msg = 'Input reference data information is missing the \'bundles\' section'
@@ -89,7 +89,7 @@ def locate_file_paths(
     refdata_info,
     match_dict=None,
 ):
-    """Locates reference filepath.
+    """Locate reference filepath component.
 
     :param str identifier: Symbolic identifier for a reference file
     :param dict refdata_info: Reference data information
@@ -97,6 +97,7 @@ def locate_file_paths(
     :returns: Filepath
     :rtype: pathlib.Path
     """
+    # pylint: disable=too-many-branches
     # Search for matching identifier
     if 'files' not in refdata_info:
         msg = f'Input reference data information file \'{refdata_info}\' is missing the \'files\' section'
@@ -155,7 +156,7 @@ def read_refdata_information(fp):
 
 
 def resolve_refdata_paths(paths_comp, refdata_dir):
-    """Load reference file information from disk.
+    """Resolve relative reference filepath components.
 
     :param list paths_comp: List of reference filepath components
     :param pathlib.Path refdata_dir: Reference data directory

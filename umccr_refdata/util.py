@@ -45,6 +45,7 @@ def get_remote_type(name, dvc_dp):
     :returns: DVC remote type
     :rtype: str
     """
+    # pylint: disable=useless-else-on-loop
     result = execute_command('dvc remote list', cwd=dvc_dp)
     for line in result.stdout.rstrip().splitlines():
         remote_name, url = line.split('\t')
@@ -52,6 +53,9 @@ def get_remote_type(name, dvc_dp):
             continue
         parsed_url = urllib.parse.urlparse(url)
         return parsed_url.scheme if parsed_url.scheme != '' else 'local'
+    else:
+        LOGGER.error(f'Did not find DVC remote name \'{name}\' in output:\n{result.stdout}')
+        sys.exit(1)
 
 
 def get_refdata_information_fp():
