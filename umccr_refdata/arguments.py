@@ -15,7 +15,7 @@ def get_arguments():
     args = parser.parse_args()
     # Process arguments
     if not hasattr(args, 'refdata_info_fp') or args.refdata_info_fp is None:
-        info_fn = 'refdata_information.yaml'
+        info_fn = 'data/refdata_information.yaml'
         args.refdata_info_fp = pathlib.Path(__file__).parent / info_fn
     if args.subparser_name == 'locate':
         if args.match_dict is not None:

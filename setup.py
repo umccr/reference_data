@@ -20,7 +20,7 @@ setuptools.setup(
         'console_scripts': ['umccr_refdata=umccr_refdata.cli:entry'],
     },
     packages=setuptools.find_packages(),
-    package_data={'umccr_refdata': ['refdata_information.yaml']},
+    include_package_data=True,
     python_requires='>=3.8',
     license='GPL',
     url='https://github.com/umccr/reference_data',
