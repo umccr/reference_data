@@ -191,7 +191,9 @@ Top level directory: `./reference_data/hmftools/`
 | gene_panel            | Driver gene panel. |
 | gridss                | GRIDSS PON and problem region list ([link](https://github.com/PapenfussLab/gridss/blob/bd7da/example/ENCFF356LFX.bed)). |
 | known_fusions         | Curated known fusion data. |
+| lilac                 | LILAC resource files. |
 | linx                  | Curated known fragile sites and LINE source regions. |
+| mappability           | Mappability values arcoss the reference genome. |
 | repeatmasker          | RepeatMasker database. |
 | sage                  | Known SAGE hotspots. |
 
