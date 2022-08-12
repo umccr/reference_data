@@ -154,6 +154,7 @@ Top level directory: `./reference_data/genomes/`
 | Data          | Description   |
 | --            | --            |
 | hg38          | 1000 Genomes Project hg38 reference genome ([link](https://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/reference/GRCh38_reference_genome/)). |
+| hg38_noalt    | The hg38 genome without alternative contigs, see [docs/genomes_hg38_noalt.md](docs/genomes_hg38_noalt.md). |
 
 ### Umccrise
 
