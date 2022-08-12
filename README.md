@@ -180,8 +180,8 @@ Top level directory: `./reference_data/umccrise/`
 
 Top level directory: `./reference_data/hmftools/`
 
-> Downloaded from the Hartwig Medical Foundation Nextcloud instance on 15/02/2022
-> ([link](https://nextcloud.hartwigmedicalfoundation.nl/s/LTiKTd8XxBqwaiC?path=%2FHMFTools-Resources)).
+> Compiled from the Hartwig Medical Foundation Nextcloud instance on 12/08/2022,
+> see [docs/hmftools.md](docs/hmftools.md) for details.
 
 | Data                  | Description   |
 | --                    | --            |
@@ -193,6 +193,7 @@ Top level directory: `./reference_data/hmftools/`
 | known_fusions         | Curated known fusion data. |
 | lilac                 | LILAC resource files. |
 | linx                  | Curated known fragile sites and LINE source regions. |
+| purple                | Germline cohort variant frequency file. |
 | mappability           | Mappability values arcoss the reference genome. |
 | repeatmasker          | RepeatMasker database. |
 | sage                  | Known SAGE hotspots. |
